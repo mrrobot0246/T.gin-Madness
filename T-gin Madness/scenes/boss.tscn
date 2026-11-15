@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dh3x6lscraayp"]
+
+[ext_resource type="Script" uid="uid://bejsy5f5hm5yc" path="res://scripts/boss.gd" id="1_neq0i"]
+[ext_resource type="Texture2D" uid="uid://dvr0wafoucg62" path="res://assets/sprites/Screenshot_2026-11-15_113154-removebg-preview.png" id="2_jncid"]
+[ext_resource type="PackedScene" uid="uid://djxu1aio05c1w" path="res://scenes/cross_projectile.tscn" id="2_qnbj4"]
+[ext_resource type="PackedScene" uid="uid://83sxixwkl052" path="res://scenes/mini_ball.tscn" id="2_r3bxh"]
+[ext_resource type="AudioStream" path="res://assets/sounds/tap.wav" id="3_hit"]
+[ext_resource type="AudioStream" path="res://assets/sounds/power_up.wav" id="4_power"]
+[ext_resource type="AudioStream" path="res://assets/sounds/explosion.wav" id="5_death"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1mmi"]
+radius = 40.0
+
+[node name="Boss" type="Node2D" unique_id=473146263]
+script = ExtResource("1_neq0i")
+mini_ball_scene = ExtResource("2_r3bxh")
+cross_projectile_scene = ExtResource("2_qnbj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=877068447]
+scale = Vector2(0.26900586, 0.28015563)
+texture = ExtResource("2_jncid")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1899244264]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1633518519]
+shape = SubResource("CircleShape2D_a1mmi")
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=1683373551]
+position = Vector2(-138, 38)
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1184158889]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="VulnerableTimer" type="Timer" parent="." unique_id=1665357137]
+wait_time = 6.0
+one_shot = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hit")
+volume_db = -10.0
+
+[node name="PowerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_power")
+volume_db = -8.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_death")
+volume_db = -4.0

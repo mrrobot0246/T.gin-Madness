@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://by7we5eb5m8op"]
+
+[ext_resource type="Script" uid="uid://dudufs56e3v8n" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://hb7cits3qg4o" path="res://assets/sprites/Untitled-removebg-preview.png" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="2_4ra3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1mmi"]
+size = Vector2(14, 12)
+
+[node name="Enemy" type="Node2D" unique_id=957384745]
+position = Vector2(0, -2)
+script = ExtResource("1_4ra3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780664036]
+position = Vector2(0, -5)
+scale = Vector2(0.08988764, 0.09333333)
+texture = ExtResource("1_md0e3")
+region_enabled = true
+region_rect = Rect2(208, 68, 178, 150)
+
+[node name="Killzone" parent="." unique_id=2035304077 instance=ExtResource("2_4ra3w")]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1777176910]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_a1mmi")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1524598896]
+position = Vector2(0, -4)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=906234707]
+position = Vector2(0, -4)
+target_position = Vector2(-9, 0)

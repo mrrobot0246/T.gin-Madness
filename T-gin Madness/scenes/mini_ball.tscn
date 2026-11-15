@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://83sxixwkl052"]
+
+[ext_resource type="Script" uid="uid://cejggjs7p65oo" path="res://scripts/mini_ball.gd" id="1_3u8xk"]
+[ext_resource type="Texture2D" uid="uid://b7332515jhsbg" path="res://assets/sprites/Screenshot_2026-11-15_120220-removebg-preview.png" id="1_dvwbq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1mmi"]
+
+[node name="MiniBall" type="Area2D" unique_id=685983818]
+z_index = 4
+collision_mask = 2
+script = ExtResource("1_3u8xk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=313465678]
+scale = Vector2(0.58666664, 0.6097561)
+texture = ExtResource("1_dvwbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314864065]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_a1mmi")

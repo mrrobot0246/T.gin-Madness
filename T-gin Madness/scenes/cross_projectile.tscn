@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://djxu1aio05c1w"]
+
+[ext_resource type="Script" uid="uid://c8w57w7pt7vl4" path="res://scripts/cross_projectile.gd" id="1_6yi7w"]
+[ext_resource type="Texture2D" uid="uid://cbsrd1j8w0slc" path="res://assets/sprites/Screenshot_2026-11-15_113209-removebg-preview.png" id="2_3t286"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fr3f"]
+size = Vector2(54, 70)
+
+[node name="CrossProjectile" type="Area2D" unique_id=1174016103]
+z_index = 4
+collision_mask = 2
+script = ExtResource("1_6yi7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=642059592]
+scale = Vector2(0.21794872, 0.23841059)
+texture = ExtResource("2_3t286")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=730403808]
+shape = SubResource("RectangleShape2D_8fr3f")
