@@ -7,6 +7,8 @@ var triggered = false
 func _ready():
 	boss_trigger.body_entered.connect(_on_boss_trigger_entered)
 
+
+
 func _on_boss_trigger_entered(body):
 	if triggered:
 		return

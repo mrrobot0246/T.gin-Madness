@@ -22,35 +22,46 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+
+
+
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
 
+
 	var direction = Input.get_axis("move_left", "move_right")
+
 
 	if direction > 0:
 		sprite.flip_h = false
 	elif direction < 0:
 		sprite.flip_h = true
 
+
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+
 	move_and_slide()
+
 
 func take_damage(amount):
 	if is_dead or is_invulnerable:
 		return
 
+
 	health -= amount
 	if health < 0:
 		health = 0
 
+
 	if health <= 0:
 		die()
 		return
+
 
 	hurt_sound.play()
 	is_invulnerable = true

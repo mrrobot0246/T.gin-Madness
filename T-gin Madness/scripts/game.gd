@@ -5,6 +5,9 @@ static var has_checkpoint = false
 
 @onready var player = $Player
 
+
+
+
 func _ready():
 	Engine.time_scale = 1.0
 	if has_checkpoint:
@@ -16,13 +19,21 @@ func _ready():
 			tutorial.queue_free()
 		get_tree().paused = false
 
+
+
 func set_checkpoint(pos):
 	checkpoint_position = pos
 	has_checkpoint = true
 
+
+
 static func clear_checkpoint():
 	has_checkpoint = false
 	checkpoint_position = Vector2.ZERO
+
+
+
+
 
 func restart_level():
 	Engine.time_scale = 1.0

@@ -10,8 +10,14 @@ extends CanvasLayer
 @onready var boss_label = $Root/BossHealth/Label
 @onready var boss_bar = $Root/BossHealth/Bar
 
+
+
+
 var player = null
 var boss = null
+
+
+
 
 func _ready():
 	coin_label.visible = show_coins
